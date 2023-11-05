@@ -3,6 +3,7 @@ package com.example.forum.controller;
 import com.example.forum.dto.PostRequestDto;
 import com.example.forum.dto.PostResponseDto;
 import com.example.forum.entity.Post;
+import com.example.forum.service.ForumService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -19,6 +20,9 @@ public class PostController {
     // 게시물 생성
     @PostMapping("/posts")
     public PostResponseDto createPost(@RequestBody PostRequestDto requestDto) {
+        //ForumService forumService = new ForumService();
+        //return forumService.createPost(requestDto);
+
         // entity로 변환
         Post post = new Post(requestDto);
 
@@ -70,5 +74,7 @@ public class PostController {
         } else {
             throw new IllegalArgumentException("선택한 게시물은 존재하지 않습니다.");
         }
+
+
     }
 }
